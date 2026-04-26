@@ -1,0 +1,35 @@
+version: '3.9'
+services:
+    # dbservice:
+    #     image: mysql:8.0.32
+    #     ports:
+    #         - '3306:3306'
+    #     environment:
+    #         - MYSQL_DATABASE=${DB_DATABASE}
+    #         - MYSQL_USER=${DB_USERNAME}
+    #         - MYSQL_PASSWORD=${DB_PASSWORD}
+    #         - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+    #         - MYSQL_ALLOW_EMPTY_PASSWORD=
+    #     volumes:
+    #         - db-data:/var/lib/mysql
+    #         # - db-data:/data/db
+    #         # postgres -> /var/lib/postgresql/data
+    #     tty: true
+
+    apiservice:
+        tty: true
+        build: .
+        ports:
+            - '8000:3000'
+        volumes:
+            - .:/home/app
+        # links:
+        #     - dbservice
+        restart: always
+        environment:
+            - DB_HOST=localhost
+            - DB_USERNAME=${DB_USERNAME}
+            - DB_PASSWORD=${DB_PASSWORD}
+            - DB_DATABASE=${DB_DATABASE}
+# volumes:
+#     db-data:

@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "ES2020", // mínimo ES2020 para soportar #private
+        "module": "CommonJS", // Node corre directo sin "type": "module"
+        "moduleResolution": "node",
+        "outDir": "dist",
+        "rootDir": "src",
+        "strict": true,
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "lib": ["esnext"],
+        "sourceMap": false, // Deshabilitado para producción
+        "removeComments": true, // Eliminar comentarios en el build
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true
+    },
+    "include": ["src"],
+    "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"]
+}
